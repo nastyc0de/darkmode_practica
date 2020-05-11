@@ -18,6 +18,7 @@ body {
     --top_bg_pattern: hsl(225, 100%, 98%);
     --card_bg_color: hsl(227, 47%, 96%);
     --darkgrayishblue: hsl(228, 12%, 44%);
+    --darkmode_title_color: hsl(0, 0%, 100%);
 }
 .wrapper {
     padding: 0 30px;
@@ -45,6 +46,44 @@ h1{
 }
 .top-section{
     margin-top: -50px;
+}
+.dark-mode-title{
+    color: var(--darkmode_title_color);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.dark-mode{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+    
+}
+.checkbox{
+    display: none;
+}
+.checkbox:checked ~ .switch::before{
+    transform: translateX(0);
+}
+.switch{
+    height: 30px;
+    display: block;
+    border-radius: 20px;
+    background: var(--toggle_switch);
+    width: 60px;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.switch::before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: var(--background_color);
+    border-radius: 50%;
+    transform: translateX(30px);
+    transition: 0.3s;
+    will-change: transform;
 }
 .card {
     border-radius: 8px;
@@ -216,5 +255,6 @@ h1{
         --card_bg_color:hsl(228, 28%, 20%);
         --title_color:hsl(0, 0%, 100%);
         --toggle:hsl(242, 45%, 31%);
+        --toggle_switch:linear-gradient(to right, hsl(210, 78%, 56%) 0%,hsl(146, 68%, 55%) 100%);
     }
 }
