@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
+    background: var(--background_color);
 }
 :root{
     --lime-green: hsl(163, 72%, 41%);
@@ -10,11 +11,12 @@ body {
     --instagram-1: hsl(37, 97%, 70%);
     --instagram-2: hsl(329, 70%, 58%);
     --youTube: hsl(348, 97%, 39%);
-    --whitebg: hsl(0, 0%, 100%);
-    --gray: hsl(228, 12%, 44%);
+    --background_color: hsl(0, 0%, 100%);
+    --title_color: black;
+    --letter_color: hsl(228, 12%, 44%);
     --toggle: hsl(230, 22%, 74%);
-    --verypaleblue: hsl(225, 100%, 98%);
-    --lightgrayishblue: hsl(227, 47%, 96%);
+    --top_bg_pattern: hsl(225, 100%, 98%);
+    --card_bg_color: hsl(227, 47%, 96%);
     --darkgrayishblue: hsl(228, 12%, 44%);
 }
 .wrapper {
@@ -25,20 +27,21 @@ body {
     grid-row-gap: 25px;
 }
 .header{
-    background:var(--verypaleblue);
+    background:var(--top_bg_pattern);
     padding-bottom: 100px;
     border-radius: 0 0 20px 20px;
 }
 .header-total{
-    color:var(--gray);
+    color:var(--letter_color);
     margin: .5em 0;
     font-weight: bold;
-    border-bottom: 3px solid var(--gray);
+    border-bottom: 3px solid var(--letter_color);
     padding-bottom: 1.5em;
 }
 h1{
     margin: 0;
     font-size: 1.7em;
+    color: var(--title_color);
 }
 .top-section{
     margin-top: -50px;
@@ -46,7 +49,7 @@ h1{
 .card {
     border-radius: 8px;
     overflow: hidden;
-    background:var(--lightgrayishblue);
+    background:var(--card_bg_color);
     text-align: center;
     padding: 1.7em 0;
     position: relative;
@@ -80,7 +83,7 @@ h1{
     display: flex;
     align-items:center;
     justify-content: center;
-    color: var(--gray);
+    color: var(--letter_color);
     font-weight: bold;
 }
 .card-title img{
@@ -91,11 +94,12 @@ h1{
     font-weight: 700;
     font-size: 55px;
     display: block;
+    color:var(--title_color);
 }
 .follower-title{
     text-transform: uppercase;
     display: block;
-    color: var(--gray);
+    color: var(--letter_color);
     letter-spacing: 4px;
     font-size:.8em;
 }
@@ -114,21 +118,25 @@ h1{
     margin: 50px 0 25px 0 ;
 }
 .overview-title h1{
-    color: var(--gray);
+    color: var(--title_color);
 }
 .card-overview{
     border-radius: 8px;
-    background:var(--lightgrayishblue);
+    background:var(--card_bg_color);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-row-gap: 1em;
     padding: 1.7em;
+    margin-bottom: 3rem;
+}
+.card-overview:hover{
+    background:var(--toggle);
 }
 .card-overview p{
     margin: 0;
 }
 .card-o-title{
-    color: var(--gray);
+    color: var(--letter_color);
     font-weight: bold;
     font-size: .9em;
 }
@@ -136,6 +144,77 @@ h1{
     text-align: right;
 }
 .card-o-number{
-    font-size: 2em;
+    font-weight: bold;
+    font-size: 2.5em;
+    line-height:0.9;
+    color:var(--title_color);
+}
+.card-o-data{
+    text-align: right;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.card-o-data img{
+    margin-right: 5px;
+    margin-bottom: 7px;
+}
+.card-o-positive-data{
+    font-weight: bold;
+    color: var(--lime-green);
+}
+.card-o-negative-data{
+    font-weight: bold;
+    color: var(--bright-red);
 }
 
+@media screen and (min-width: 480px){
+    .grid{
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap:20px;
+    }
+    .wrapper{
+        max-width: 1440px;
+        margin: auto;
+    }
+    .header-total{
+        color:var(--letter_color);
+        margin: .5em 0;
+        font-weight: bold;
+        padding-bottom: 1.5em;
+    }
+}
+@media screen and (min-width: 768px){
+    .grid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .header-total{
+        color:var(--letter_color);
+        margin: .5em 0;
+        font-weight: bold;
+        padding-bottom: 1.5em;
+    }
+}
+@media screen and (min-width: 1024px){
+    .grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .header-total{
+        color:var(--letter_color);
+        margin: .5em 0;
+        font-weight: bold;
+        padding-bottom: 1.5em;
+        border-bottom: none;
+
+    }
+}
+@media (prefers-color-scheme: dark){
+    :root{
+        --background_color:hsl(230, 17%, 14%);
+        --letter_color:hsl(228, 34%, 66%);
+        --top_bg_pattern:hsl(232, 19%, 15%);
+        --card_bg_color:hsl(228, 28%, 20%);
+        --title_color:hsl(0, 0%, 100%);
+        --toggle:hsl(242, 45%, 31%);
+    }
+}
